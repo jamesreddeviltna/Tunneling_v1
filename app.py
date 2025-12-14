@@ -122,7 +122,8 @@ psi[mask1] = np.exp(1j * k * x[mask1]) + r * np.exp(-1j * k * x[mask1])
 psi[mask2] = Acoef * np.exp(1j * q * x[mask2]) + Bcoef * np.exp(-1j * q * x[mask2])
 psi[mask3] = t * np.exp(1j * k * x[mask3])
 
-prob = np.abs(psi)**2
+#prob = np.abs(psi)**2
+prob = np.real(psi)**2 + np.imag(psi)**2
 
 # --- Layout: results + plots ---
 col1, col2 = st.columns([1, 2], gap="large")
