@@ -18,9 +18,9 @@ st.write(
 # --- Sidebar controls ---
 st.sidebar.header("Parameters")
 
-E_eV  = st.sidebar.slider("Electron energy E (eV)", 0.001, 20.0, 2.0, 0.001)
-V0_eV = st.sidebar.slider("Barrier height V₀ (eV)", 0.0,  20.0, 5.0, 0.001)
-a_nm  = st.sidebar.slider("Barrier width a (nm)",  0.01,  3.0, 1.0, 0.01)
+E_eV  = st.sidebar.slider("Electron energy E (eV)", 0.001, 10.0, 2.0, 0.001)
+V0_eV = st.sidebar.slider("Barrier height V₀ (eV)", 0.0,  10.0, 5.0, 0.001)
+a_nm  = st.sidebar.slider("Barrier width a (nm)",  0.01,  2.0, 1.0, 0.01)
 
 Lmult = st.sidebar.slider("Plot padding (× a on each side)", 1.0, 10.0, 4.0, 0.5)
 Npts  = st.sidebar.slider("Number of x points", 400, 5000, 1600, 100)
