@@ -20,14 +20,14 @@ st.sidebar.header("Parameters")
 
 E_eV  = st.sidebar.slider("Electron energy E (eV)", 0.001, 20.0, 2.0, 0.001)
 V0_eV = st.sidebar.slider("Barrier height V₀ (eV)", 0.0,  20.0, 5.0, 0.001)
-a_nm  = st.sidebar.slider("Barrier width a (nm)",  0.01,  10.0, 1.0, 0.01)
+a_nm  = st.sidebar.slider("Barrier width a (nm)",  0.01,  3.0, 1.0, 0.01)
 
 Lmult = st.sidebar.slider("Plot padding (× a on each side)", 1.0, 10.0, 4.0, 0.5)
 Npts  = st.sidebar.slider("Number of x points", 400, 5000, 1600, 100)
 
 plot_mode = st.sidebar.selectbox(
     "Plot",
-    ["|ψ(x)|²", "Re ψ(x)", "Re/Im ψ(x)", "Both (|ψ|² and Re/Im)"]
+    ["Re ψ(x)", "|ψ(x)|²", "Re/Im ψ(x)", "Both (|ψ|² and Re/Im)"]
 )
 
 # --- Convert units ---
@@ -173,7 +173,7 @@ with col2:
         
     elif plot_mode == "Re/Im ψ(x)":
         ax.plot(x, np.real(psi), label="Re[ψ(x)]")
-        ax.plot(x, np.imag(psi), label="Im[ψ(x)]")
+        ax.plot(x, -np.imag(psi), label="-Im[ψ(x)]")
         ax.set_ylabel("Re/Im ψ(x)")
         ax.legend()
 
@@ -185,7 +185,7 @@ with col2:
 
         ax.plot(x, prob / prob_scale, label="|ψ(x)|² (normalized)")
         ax.plot(x, np.real(psi) / reim_scale, label="Re[ψ(x)] (normalized)")
-        ax.plot(x, np.imag(psi) / reim_scale, label="Im[ψ(x)] (normalized)")
+        ax.plot(x, -np.imag(psi) / reim_scale, label="-Im[ψ(x)] (normalized)")
         ax.set_ylabel("Normalized curves")
         ax.legend()
 
