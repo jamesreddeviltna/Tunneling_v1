@@ -135,10 +135,10 @@ with col1:
     st.caption("Ideally R+T ≈ 1 (small numerical deviation may appear).")
 
     st.subheader("Computed coefficients")
-    st.write(f"r = {r:.6g}")
-    st.write(f"t = {t:.6g}")
-    st.write(f"A = {Acoef:.6g}")
-    st.write(f"B = {Bcoef:.6g}")
+    st.write(f"r = {r:.3g}")
+    st.write(f"t = {t:.3g}")
+    st.write(f"A = {Acoef:.3g}")
+    st.write(f"B = {Bcoef:.3g}")
 
     st.subheader("Wave numbers")
     st.write(f"k (outside) = {k:.3e} 1/m")
