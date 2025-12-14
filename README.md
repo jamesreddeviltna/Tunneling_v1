@@ -1,0 +1,1 @@
+A streamlit web app code to simulate a tunneling problem. The width and strength of the potential barrier, along with the energy of the free electron can be tuned. The program should visualise the wavefunction in all three zones then calculate and display trasmission and reflection probability
