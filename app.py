@@ -10,7 +10,7 @@ eV   = 1.602_176_634e-19  # J
 
 st.set_page_config(page_title="Quantum Tunneling (Rectangular Barrier)", layout="wide")
 
-st.title("Quantum Tunneling Through a Rectangular Barrier (3 Zones)")
+st.title("Quantum Tunneling")
 st.write(
     "Incident electron from the left. Region I: x<0, Region II: 0≤x≤a (barrier), Region III: x>a."
 )
@@ -27,7 +27,7 @@ Npts  = st.sidebar.slider("Number of x points", 400, 5000, 1600, 100)
 
 plot_mode = st.sidebar.selectbox(
     "Plot",
-    ["|ψ(x)|²", "Re/Im ψ(x)", "Both (|ψ|² and Re/Im)"]
+    ["|ψ(x)|²", "Re ψ(x)", "Re/Im ψ(x)", "Both (|ψ|² and Re/Im)"]
 )
 
 # --- Convert units ---
@@ -166,6 +166,11 @@ with col2:
         ax.set_ylabel("|ψ(x)|²")
         ax.legend()
 
+    elif plot_mode == "Re ψ(x)":
+        ax.plot(x, np.real(psi), label="Re[ψ(x)]")
+        ax.set_ylabel("Re ψ(x)")
+        ax.legend()
+        
     elif plot_mode == "Re/Im ψ(x)":
         ax.plot(x, np.real(psi), label="Re[ψ(x)]")
         ax.plot(x, np.imag(psi), label="Im[ψ(x)]")
@@ -187,11 +192,3 @@ with col2:
     ax.set_title(f"Rectangular barrier: V0={V0_eV:.3f} eV, a={a_nm:.3f} nm, E={E_eV:.3f} eV")
     st.pyplot(fig)
 
-st.markdown(
-    """
-**How to run**
-1. Save as `app.py`
-2. Install: `pip install streamlit numpy matplotlib`
-3. Run: `streamlit run app.py`
-"""
-)
